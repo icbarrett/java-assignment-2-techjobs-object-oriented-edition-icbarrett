@@ -62,48 +62,36 @@ public class JobTest {
     @Test
     public void testForLabelFollowingData() {
         // test ID Line
-        String idLabel = "ID: ";
-        String idValue = String.valueOf(fullConstructorJob1.getId());
-        String idLine = idLabel + idValue;
+        String idLine = "ID: " + String.valueOf(fullConstructorJob1.getId()) + "\n";
         assertTrue(fullConstructorJob1.toString().contains(idLine));
 
         // test Name line
-        String nameLabel = "Name: ";
-        String nameValue = fullConstructorJob1.getName();
-        String nameLine = nameLabel + nameValue;
+        String nameLine = "Name: " +  fullConstructorJob1.getName() + "\n";
         assertTrue(fullConstructorJob1.toString().contains(nameLine));
 
         // test Employer line
-        String employerLabel = "Employer: ";
-        String employerValue = String.valueOf(fullConstructorJob1.getEmployer());
-        String employerLine = employerLabel + employerValue;
+        String employerLine = "Employer: " + fullConstructorJob1.getEmployer() + "\n";
         assertTrue(fullConstructorJob1.toString().contains(employerLine));
 
         // test Location line
-        String locationLabel = "Location: ";
-        String locationValue = String.valueOf(fullConstructorJob1.getLocation());
-        String locationLine = locationLabel + locationValue;
+        String locationLine = "Location: " + fullConstructorJob1.getLocation() + "\n";
         assertTrue(fullConstructorJob1.toString().contains(locationLine));
 
         // test PositionType line
-        String positionTypeLabel = "PositionType: ";
-        String PositionTypeValue = String.valueOf(fullConstructorJob1.getPositionType());
-        String PositionTypeLine = positionTypeLabel + PositionTypeValue;
+        String PositionTypeLine = "PositionType: " + fullConstructorJob1.getPositionType() + "\n";
         assertTrue(fullConstructorJob1.toString().contains(PositionTypeLine));
 
         // test CoreCompetency line
-        String coreCompetencyLabel = "Core Competency: ";
-        String coreCompetencyValue = String.valueOf(fullConstructorJob1.getCoreCompetency());
-        String coreCompetencyLine = coreCompetencyLabel + coreCompetencyValue;
+        String coreCompetencyLine = "Core Competency: " + fullConstructorJob1.getCoreCompetency() + "\n";
         assertTrue(fullConstructorJob1.toString().contains(coreCompetencyLine));
     }
 
-    @Test
-    public void testEmptyNameFieldDataNotAvailable() {
-        // test for empty Name field
-        if (emptyJob1.getName().isEmpty() || emptyJob1.getName() == null) {
-            assertTrue(emptyJob1.toString().contains("Name: " + "Data not available"));
-        }
+//    @Test
+//    public void testEmptyNameFieldDataNotAvailable() {
+//        // test for empty Name field
+//        if (emptyJob1.getName().isEmpty() || emptyJob1.getName() == null) {
+//            assertTrue(emptyJob1.toString().contains("Name: " + "Data not available"));
+//        }
 
 
 
@@ -127,7 +115,7 @@ public class JobTest {
 //                "CoreCompetency: " + testJob.getCoreCompetency() +
 //                "\n";
 
-    }
+//    }
 //
 //    @Test
 //    public void testIfFieldIsEmpty() {

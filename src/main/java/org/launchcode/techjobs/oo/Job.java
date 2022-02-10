@@ -101,19 +101,12 @@ public class Job {
     public String toString() {
         String printString = "";
         String blankLine = "\n";
-        String idLine = "ID: " + getId();
-        String nameLine = "Name: ";
-
-        if (getName().isEmpty()) {
-            nameLine += getName();
-        } else {
-            nameLine += "Data not available";
-        }
-
-        String employerLine = "Employer: " + getEmployer();
-        String locationLine = "Location: " + getLocation();
-        String positionTypeLine = "PositionType: " + getPositionType();
-        String coreCompetencyLine = "Core Competency: " + getCoreCompetency();
+        String idLine = "ID: " + getId() + "\n";
+        String nameLine = "Name: " + getName() + "\n";
+        String employerLine = "Employer: " + getEmployer() + "\n";
+        String locationLine = "Location: " + getLocation() + "\n";
+        String positionTypeLine = "PositionType: " + getPositionType() + "\n";
+        String coreCompetencyLine = "Core Competency: " + getCoreCompetency() + "\n";
 
         printString = blankLine +
                 idLine +
@@ -121,8 +114,7 @@ public class Job {
                 employerLine +
                 locationLine +
                 positionTypeLine +
-                coreCompetencyLine +
-                blankLine;
+                coreCompetencyLine;
 
         return printString;
     }
