@@ -88,7 +88,7 @@ public class JobTest {
 
     @Test
     public void testOnlyID() {
-        if (emptyJob1.getName() == null && emptyJob1.getLocation() == null) {
+        if (emptyJob1.getName() == null && emptyJob1.getLocation() == null && emptyJob1.getEmployer() == null && emptyJob1.getCoreCompetency() == null && emptyJob1.getPositionType() == null) {
             assertTrue(emptyJob1.toString().contains("\nOOPS! This job does not exist\n"));
         }
     }

@@ -99,7 +99,7 @@ public class Job {
     // Add toString Method
     @Override
     public String toString() {
-        if (getName() == null && getLocation() == null) {
+        if ((getName() == null) && (getLocation() == null) && (getEmployer() == null) && (getCoreCompetency() == null) && (getPositionType() == null)) {
             return "\nOOPS! This job does not exist\n";
         } else {
             String printString = "";
