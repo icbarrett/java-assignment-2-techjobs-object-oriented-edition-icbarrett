@@ -1,11 +1,12 @@
 package org.launchcode.techjobs.oo;
 
-import java.util.Objects;
+import static org.junit.Assert.assertTrue;
 
 public class Job {
 
     private int id;
     private static int nextId = 1;
+    private String value;
 
     private String name;
     private Employer employer;
@@ -42,7 +43,8 @@ public class Job {
     }
 
     public int hashCode() {
-        return java.util.Objects.hash(super.hashCode(), getId());
+        return java.util.Objects.hash(
+                new Object[]{super.hashCode(), getId()});
     }
 
 
@@ -93,4 +95,36 @@ public class Job {
     public void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
     }
+
+    // Add toString Method
+    @Override
+    public String toString() {
+        String printString = "";
+        String blankLine = "\n";
+        String idLine = "ID: " + getId();
+        String nameLine = "Name: ";
+
+        if (getName().isEmpty()) {
+            nameLine += getName();
+        } else {
+            nameLine += "Data not available";
+        }
+
+        String employerLine = "Employer: " + getEmployer();
+        String locationLine = "Location: " + getLocation();
+        String positionTypeLine = "PositionType: " + getPositionType();
+        String coreCompetencyLine = "Core Competency: " + getCoreCompetency();
+
+        printString = blankLine +
+                idLine +
+                nameLine +
+                employerLine +
+                locationLine +
+                positionTypeLine +
+                coreCompetencyLine +
+                blankLine;
+
+        return printString;
+    }
+
 }
