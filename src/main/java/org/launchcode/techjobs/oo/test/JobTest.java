@@ -86,11 +86,18 @@ public class JobTest {
         assertTrue(fullConstructorJob1.toString().contains(coreCompetencyLine));
     }
 
+    @Test
+    public void testOnlyID() {
+        if (emptyJob1.getName() == null && emptyJob1.getLocation() == null) {
+            assertTrue(emptyJob1.toString().contains("\nOOPS! This job does not exist\n"));
+        }
+    }
+
 //    @Test
 //    public void testEmptyNameFieldDataNotAvailable() {
-//        // test for empty Name field
-//        if (emptyJob1.getName().isEmpty() || emptyJob1.getName() == null) {
-//            assertTrue(emptyJob1.toString().contains("Name: " + "Data not available"));
+////        // test for empty Name field
+////        if (emptyJob1.getName().isEmpty() || emptyJob1.getName() == null) {
+////            assertTrue(emptyJob1.toString().contains("Name: " + "Data not available"));
 //        }
 
 
@@ -133,6 +140,9 @@ public class JobTest {
 //                "CoreCompetency: " + testJobEmptyName.getCoreCompetency() +
 //                "\n";
 //        assertEquals(expected, testJobEmptyName.toString()
+
 //    }
+
+
 
 }

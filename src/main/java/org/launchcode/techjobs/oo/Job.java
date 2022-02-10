@@ -99,24 +99,28 @@ public class Job {
     // Add toString Method
     @Override
     public String toString() {
-        String printString = "";
-        String blankLine = "\n";
-        String idLine = "ID: " + getId() + "\n";
-        String nameLine = "Name: " + getName() + "\n";
-        String employerLine = "Employer: " + getEmployer() + "\n";
-        String locationLine = "Location: " + getLocation() + "\n";
-        String positionTypeLine = "PositionType: " + getPositionType() + "\n";
-        String coreCompetencyLine = "Core Competency: " + getCoreCompetency() + "\n";
+        if (getName() == null && getLocation() == null) {
+            return "\nOOPS! This job does not exist\n";
+        } else {
+            String printString = "";
+            String blankLine = "\n";
+            String idLine = "ID: " + getId() + "\n";
+            String nameLine = "Name: " + getName() + "\n";
+            String employerLine = "Employer: " + getEmployer() + "\n";
+            String locationLine = "Location: " + getLocation() + "\n";
+            String positionTypeLine = "PositionType: " + getPositionType() + "\n";
+            String coreCompetencyLine = "Core Competency: " + getCoreCompetency() + "\n";
 
-        printString = blankLine +
-                idLine +
-                nameLine +
-                employerLine +
-                locationLine +
-                positionTypeLine +
-                coreCompetencyLine;
+            printString = blankLine +
+                    idLine +
+                    nameLine +
+                    employerLine +
+                    locationLine +
+                    positionTypeLine +
+                    coreCompetencyLine;
 
-        return printString;
+            return printString;
+        }
     }
 
 }
