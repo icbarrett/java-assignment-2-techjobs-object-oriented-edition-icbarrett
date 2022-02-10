@@ -102,8 +102,15 @@ public class Job {
         if ((getName() == null) && (getLocation() == null) && (getEmployer() == null) && (getCoreCompetency() == null) && (getPositionType() == null)) {
             return "\nOOPS! This job does not exist\n";
         } else {
+            String data = "";
             String printString = "";
             String blankLine = "\n";
+//            if (getName() == null) {
+//                data = "Data not available";
+//            }
+//            else {
+//                data = getName();
+//            }
             String idLine = "ID: " + getId() + "\n";
             String nameLine = "Name: " + getName() + "\n";
             String employerLine = "Employer: " + getEmployer() + "\n";

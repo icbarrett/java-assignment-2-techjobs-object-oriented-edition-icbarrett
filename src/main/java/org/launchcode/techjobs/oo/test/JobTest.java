@@ -88,7 +88,11 @@ public class JobTest {
 
     @Test
     public void testOnlyID() {
-        if (emptyJob1.getName() == null && emptyJob1.getLocation() == null && emptyJob1.getEmployer() == null && emptyJob1.getCoreCompetency() == null && emptyJob1.getPositionType() == null) {
+        if (emptyJob1.getName() == null &&
+                emptyJob1.getLocation() == null &&
+                emptyJob1.getEmployer() == null &&
+                emptyJob1.getCoreCompetency() == null &&
+                emptyJob1.getPositionType() == null) {
             assertTrue(emptyJob1.toString().contains("\nOOPS! This job does not exist\n"));
         }
     }
@@ -101,17 +105,8 @@ public class JobTest {
 //        }
 
 
-
-
-
-
 //        assertTrue(testJob.toString().contains("ID: "));
 //        String test = String.valueOf(testJob.getEmployer());
-
-//
-
-
-
 
 //        String expected = "\n" +
 //                "ID: " + testJob.getId()  +
