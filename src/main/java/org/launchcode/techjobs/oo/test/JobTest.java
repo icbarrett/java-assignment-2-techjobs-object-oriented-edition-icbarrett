@@ -17,6 +17,7 @@ public class JobTest {
     Job emptyJob2;
     Job fullConstructorJob1;
     Job fullConstructorJob2;
+
     @Before
     public void createJobObjects() {
         emptyJob1 = new Job();
@@ -34,18 +35,18 @@ public class JobTest {
     }
 
     @Test
-    public void testSettingJobID(){
-        assertEquals(emptyJob1.getId()+1, emptyJob2.getId());
+    public void testSettingJobId() {
+        assertEquals(emptyJob1.getId() + 1, emptyJob2.getId());
     }
 
     @Test
     public void testJobConstructorSetsAllFields() {
         assertEquals("Product tester",
                 fullConstructorJob1.getName());
-        assert(fullConstructorJob1.getEmployer() instanceof Employer);
-        assert(fullConstructorJob1.getLocation() instanceof Location);
-        assert(fullConstructorJob1.getPositionType() instanceof PositionType);
-        assert(fullConstructorJob1.getCoreCompetency() instanceof CoreCompetency);
+        assert (fullConstructorJob1.getEmployer() instanceof Employer);
+        assert (fullConstructorJob1.getLocation() instanceof Location);
+        assert (fullConstructorJob1.getPositionType() instanceof PositionType);
+        assert (fullConstructorJob1.getCoreCompetency() instanceof CoreCompetency);
     }
 
     @Test
@@ -54,19 +55,19 @@ public class JobTest {
     }
 
     @Test
-    public void testForBlankLine() {
+    public void testToStringStartsAndEndsWithNewLine() {
         assertTrue(emptyJob1.toString().startsWith("\n"));
         assertTrue(emptyJob1.toString().endsWith("\n"));
     }
 
     @Test
-    public void testForLabelFollowingData() {
+    public void testToStringContainsCorrectLabelsAndData() {
         // test ID Line
         String idLine = "ID: " + String.valueOf(fullConstructorJob1.getId()) + "\n";
         assertTrue(fullConstructorJob1.toString().contains(idLine));
 
         // test Name line
-        String nameLine = "Name: " +  fullConstructorJob1.getName() + "\n";
+        String nameLine = "Name: " + fullConstructorJob1.getName() + "\n";
         assertTrue(fullConstructorJob1.toString().contains(nameLine));
 
         // test Employer line
@@ -97,47 +98,56 @@ public class JobTest {
         }
     }
 
-//    @Test
-//    public void testEmptyNameFieldDataNotAvailable() {
-////        // test for empty Name field
-////        if (emptyJob1.getName().isEmpty() || emptyJob1.getName() == null) {
-////            assertTrue(emptyJob1.toString().contains("Name: " + "Data not available"));
-//        }
+    @Test
+    public void testToStringHandlesEmptyField() {
+        Job testJobEmptyName;
 
+        //test for Name field
+        testJobEmptyName = new Job("",
+                new Employer("ACME"),
+                new Location("Desert"),
+                new PositionType("Quality control"),
+                new CoreCompetency("Persistence"));
+        assertTrue(testJobEmptyName.toString().contains("Name: Data not available"));
 
-//        assertTrue(testJob.toString().contains("ID: "));
-//        String test = String.valueOf(testJob.getEmployer());
+        //test for Employer field
+        Job testJobEmptyEmployer = new Job("Product tester",
+                new Employer(""),
+                new Location("Desert"),
+                new PositionType("Quality control"),
+                new CoreCompetency("Persistence"));
 
-//        String expected = "\n" +
-//                "ID: " + testJob.getId()  +
-//                "Name: " + testJob.getName() +
-//                "Employer: " + testJob.getEmployer() +
-//                "Location: " + testJob.getLocation() +
-//                "PositionType: " + testJob.getPositionType() +
-//                "CoreCompetency: " + testJob.getCoreCompetency() +
-//                "\n";
+        assertTrue(testJobEmptyEmployer.toString().contains("Employer: Data not available"));
 
-//    }
-//
-//    @Test
-//    public void testIfFieldIsEmpty() {
-//        Job testJobEmptyName= new Job("",
-//                new Employer("ACME"),
-//                new Location("Desert"),
-//                new PositionType("Quality control"),
-//                new CoreCompetency("Persistence"));
-//        String expected = "\n" +
-//                "ID: " + "Data not available"  +
-//                "Name: " + testJobEmptyName.getName() +
-//                "Employer: " + testJobEmptyName.getEmployer() +
-//                "Location: " + testJobEmptyName.getLocation() +
-//                "PositionType: " + testJobEmptyName.getPositionType() +
-//                "CoreCompetency: " + testJobEmptyName.getCoreCompetency() +
-//                "\n";
-//        assertEquals(expected, testJobEmptyName.toString()
+        //test for Location field
+        Job testJobEmptyLocation = new Job("Product tester",
+                new Employer("ACME"),
+                new Location(""),
+                new PositionType("Quality control"),
+                new CoreCompetency("Persistence"));
+        assertTrue(testJobEmptyLocation.toString().contains("Location: Data not available"));
 
-//    }
+        //test for PositionType field
+        Job testJobEmptyPositionType = new Job("Product tester",
+                new Employer("ACME"),
+                new Location("Desert"),
+                new PositionType(""),
+                new CoreCompetency("Persistence"));
+        assertTrue(testJobEmptyPositionType.toString().contains("Position Type: Data not available"));
 
+        //test for PositionType field
+        Job testJobEmptyCoreCompetency = new Job("Product tester",
+                new Employer("ACME"),
+                new Location("Desert"),
+                new PositionType("Quality control"),
+                new CoreCompetency(""));
+        assertTrue(testJobEmptyCoreCompetency.toString().contains("Core Competency: Data not available"));
 
-
+    }
 }
+
+
+
+
+
+

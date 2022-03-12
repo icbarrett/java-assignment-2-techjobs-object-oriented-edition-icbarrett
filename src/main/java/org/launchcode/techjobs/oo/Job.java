@@ -1,5 +1,7 @@
 package org.launchcode.techjobs.oo;
 
+import java.util.Objects;
+
 import static org.junit.Assert.assertTrue;
 
 public class Job {
@@ -34,17 +36,17 @@ public class Job {
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
 
-    public boolean equals(Object object) {
-        if (this == object) return true;
-        if (!(object instanceof Job)) return false;
-        if (!super.equals(object)) return false;
-        Job job = (Job) object;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Job)) return false;
+        Job job = (Job) o;
         return getId() == job.getId();
     }
 
+    @Override
     public int hashCode() {
-        return java.util.Objects.hash(
-                new Object[]{super.hashCode(), getId()});
+        return Objects.hash(getId());
     }
 
 
@@ -102,21 +104,43 @@ public class Job {
         if ((getName() == null) && (getLocation() == null) && (getEmployer() == null) && (getCoreCompetency() == null) && (getPositionType() == null)) {
             return "\nOOPS! This job does not exist\n";
         } else {
-            String data = "";
             String printString = "";
             String blankLine = "\n";
-//            if (getName() == null) {
-//                data = "Data not available";
-//            }
-//            else {
-//                data = getName();
-//            }
             String idLine = "ID: " + getId() + "\n";
-            String nameLine = "Name: " + getName() + "\n";
-            String employerLine = "Employer: " + getEmployer() + "\n";
-            String locationLine = "Location: " + getLocation() + "\n";
-            String positionTypeLine = "PositionType: " + getPositionType() + "\n";
-            String coreCompetencyLine = "Core Competency: " + getCoreCompetency() + "\n";
+            String nameLine = "";
+            String employerLine = "";
+            String locationLine = "";
+            String positionTypeLine = "";
+            String coreCompetencyLine = "";
+
+            if (getName() == null || getName().isEmpty()) {
+                setName("Data not available");
+            } else {
+                nameLine = "Name: " + getName() + "\n";
+            }
+
+            if (getEmployer() == null || getEmployer().getValue().isEmpty()) {
+                employerLine = "Employer: Data not available";
+            } else {
+                employerLine = "Employer: " + getEmployer() + "\n";
+            }
+
+            if (getLocation() == null || getLocation().getValue().isEmpty()) {
+                locationLine = "Location: Data not available\n";
+            } else {
+                locationLine = "Location: " + getLocation() + "\n";            }
+
+            if (getPositionType() == null || getPositionType().getValue().isEmpty()) {
+                positionTypeLine = "Position Type: Data not available\n";
+            } else {
+                positionTypeLine = "PositionType: " + getPositionType() + "\n";
+            }
+
+            if (getCoreCompetency() == null || getCoreCompetency().getValue().isEmpty()) {
+                coreCompetencyLine = "Core Competency: Data not available\n";
+            } else {
+                coreCompetencyLine = "Core Competency: " + getCoreCompetency() + "\n";
+            }
 
             printString = blankLine +
                     idLine +
