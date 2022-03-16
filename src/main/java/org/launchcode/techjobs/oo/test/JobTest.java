@@ -36,6 +36,8 @@ public class JobTest {
 
     @Test
     public void testSettingJobId() {
+        emptyJob1 = new Job();
+        emptyJob2 = new Job();
         assertEquals(emptyJob1.getId() + 1, emptyJob2.getId());
     }
 
@@ -79,7 +81,7 @@ public class JobTest {
         assertTrue(fullConstructorJob1.toString().contains(locationLine));
 
         // test PositionType line
-        String PositionTypeLine = "PositionType: " + fullConstructorJob1.getPositionType() + "\n";
+        String PositionTypeLine = "Position Type: " + fullConstructorJob1.getPositionType() + "\n";
         assertTrue(fullConstructorJob1.toString().contains(PositionTypeLine));
 
         // test CoreCompetency line

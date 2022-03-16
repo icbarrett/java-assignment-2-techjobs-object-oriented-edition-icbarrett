@@ -105,50 +105,28 @@ public class Job {
             return "\nOOPS! This job does not exist\n";
         } else {
             String printString = "";
-            String blankLine = "\n";
-            String idLine = "ID: " + getId() + "\n";
-            String nameLine = "";
-            String employerLine = "";
-            String locationLine = "";
-            String positionTypeLine = "";
-            String coreCompetencyLine = "";
-
             if (getName() == null || getName().isEmpty()) {
-                setName("Data not available");
-            } else {
-                nameLine = "Name: " + getName() + "\n";
+               name = "Data not available";
             }
-
             if (getEmployer() == null || getEmployer().getValue().isEmpty()) {
-                employerLine = "Employer: Data not available";
-            } else {
-                employerLine = "Employer: " + getEmployer() + "\n";
+                employer.setValue("Data not available");
             }
-
             if (getLocation() == null || getLocation().getValue().isEmpty()) {
-                locationLine = "Location: Data not available\n";
-            } else {
-                locationLine = "Location: " + getLocation() + "\n";            }
-
+                location.setValue("Data not available");
+            }
             if (getPositionType() == null || getPositionType().getValue().isEmpty()) {
-                positionTypeLine = "Position Type: Data not available\n";
-            } else {
-                positionTypeLine = "PositionType: " + getPositionType() + "\n";
+                positionType.setValue("Data not available");
             }
-
             if (getCoreCompetency() == null || getCoreCompetency().getValue().isEmpty()) {
-                coreCompetencyLine = "Core Competency: Data not available\n";
-            } else {
-                coreCompetencyLine = "Core Competency: " + getCoreCompetency() + "\n";
+                coreCompetency.setValue("Data not available");
             }
-
-            printString = blankLine +
-                    idLine +
-                    nameLine +
-                    employerLine +
-                    locationLine +
-                    positionTypeLine +
-                    coreCompetencyLine;
+            printString = "\n" +
+                    "ID: " + getId() + "\n" +
+                    "Name: " + getName() + "\n" +
+                    "Employer: " + getEmployer() + "\n" +
+                    "Location: " + getLocation() + "\n" +
+                    "Position Type: " + getPositionType() + "\n" +
+                    "Core Competency: " + getCoreCompetency() + "\n";
 
             return printString;
         }
